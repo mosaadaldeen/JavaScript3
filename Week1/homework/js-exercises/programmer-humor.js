@@ -1,4 +1,4 @@
-function makeCall() {
+function makeXhrCall() {
     let xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
     xhr.onload = () => {
@@ -13,9 +13,9 @@ function makeCall() {
     };
     xhr.open('get', 'https://xkcd.now.sh/?comic=latest');
     xhr.send();
+}
 
-    // -------------------------------------------
-
+function makeAxiosCall() {
     axios.get('https://xkcd.now.sh/?comic=latest')
         .then(function(response) {
             console.log(response);
@@ -27,4 +27,5 @@ function makeCall() {
         });
 }
 
-makeCall();
+makeAxiosCall();
+makeXhrCall();

@@ -42,10 +42,10 @@
         const createTable = createAndAppend('div', root, {
             class: "block"
         });
-        const row1 = createAndAppend('ul', createTable, {
+        const row1 = createAndAppend('div', createTable, {
             class: "row"
         });
-        createAndAppend('li', row1, {
+        createAndAppend('span', row1, {
             text: 'repository:  ',
             class: 'bold-title'
         });
@@ -53,47 +53,39 @@
             text: repo.name,
             href: repo.html_url
         });
-        const row2 = createAndAppend('ul', createTable, {
+        const row2 = createAndAppend('div', createTable, {
             class: 'row'
         });
-        createAndAppend('li', row2, {
+        createAndAppend('span', row2, {
             text: 'description:',
             class: 'bold-title'
         });
-        createAndAppend('li', row2, {
+        createAndAppend('span', row2, {
             text: repo.description
         });
 
-        const row3 = createAndAppend('ul', createTable, {
+        const row3 = createAndAppend('div', createTable, {
             class: 'row'
         });
-        createAndAppend('li', row3, {
+        createAndAppend('span', row3, {
             text: 'forks: ',
             class: 'bold-title'
         });
-        createAndAppend('li', row3, {
+        createAndAppend('span', row3, {
             text: repo.forks
         });
 
-        const row4 = createAndAppend('ul', createTable, {
+        const row4 = createAndAppend('div', createTable, {
             class: 'row'
         });
-        createAndAppend('li', row4, {
+        createAndAppend('span', row4, {
             text: 'updates: ',
             class: 'bold-title'
         });
-        createAndAppend('li', row4, {
-            text: repo.updated_at
+        createAndAppend('span', row4, {
+            text: new Date(repo.updated_at).toLocaleString()
         });
-
-
     }
-
-    // function renderRepoDetails(repo, ul) {
-    //     createAndAppend('li', ul, {
-    //         text: repo.name
-    //     });
-    // }
 
     function main(url) {
         headerHYF();

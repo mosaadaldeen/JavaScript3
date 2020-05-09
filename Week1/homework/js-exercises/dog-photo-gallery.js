@@ -1,4 +1,4 @@
-function makeCall() {
+function makeXhrCall() {
     let xhr = new XMLHttpRequest();
     xhr.open('get', 'https://dog.ceo/api/breeds/image/random');
     xhr.responseType = 'json';
@@ -17,9 +17,7 @@ function makeCall() {
     xhr.send();
 }
 
-
-
-function makeCall2() {
+function makeAxiosCall() {
     axios.get('https://cors-anywhere.herokuapp.com/https://dog.ceo/api/breeds/image/random')
         .then(response => {
             console.log(response);
@@ -33,6 +31,5 @@ function makeCall2() {
         });
 }
 
-
-document.getElementById('click1').addEventListener('click', makeCall);
-document.getElementById('click2').addEventListener('click', makeCall2);
+document.getElementById('click1').addEventListener('click', makeXhrCall);
+document.getElementById('click2').addEventListener('click', makeAxiosCall);
