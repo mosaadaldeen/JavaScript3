@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Dog photo</title>
+</head>
+
+<body>
+
+    <button id="click1">click1</button>
+    <button id="click2">click2</button>
+
+    <ul></ul>
+    <script src="dog-photo-gallery.js"></script>
+
+    <!-- <script>
+        function makeCall() {
+            let xhr = new XMLHttpRequest();
+            xhr.addEventListener("load", function() {
+                let data = this.responseText;
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(JSON.parse(data));
+                    const ul = document.querySelector('ul');
+                    const li = document.createElement('li');
+                    li.innerHTML += `<img src="${data.message}">`;
+                    ul.appendChild(li);
+                } else {
+                    console.log("Error", xhr.statusText);
+                }
+            });
+            xhr.open('get', 'https://cors-anywhere.herokuapp.com/https://dog.ceo/api/breeds/image/random');
+            xhr.send();
+        }
+
+
+
+        function makeCall2() {
+            axios.get('https://cors-anywhere.herokuapp.com/https://dog.ceo/api/breeds/image/random')
+                .then(function(response) {
+                    console.log(response);
+                    const ul = document.querySelector('ul');
+                    const li = document.createElement('li');
+                    li.innerHTML += `<img src="${response.data.message}">`;
+                    ul.appendChild(li);
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
+        }
+
+        document.getElementById('click1').addEventListener('click', makeCall);
+        document.getElementById('click2').addEventListener('click', makeCall2); -->
+    </script>
+</body>
+
+</html>
