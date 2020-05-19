@@ -1,9 +1,4 @@
 'use strict'; {
-    function fetchJSON(url) {
-        fetch(url)
-            .then(response => response.json())
-            .catch(err => handleError(err));
-    }
 
     function createAndAppend(name, parent, options = {}) {
         const elem = document.createElement(name);
@@ -18,13 +13,8 @@
         return elem;
     }
 
-    function headerHYF(root) {
-        const header = createAndAppend('header', root, {
-            class: "header"
-        });
-        createAndAppend('h2', header, {
-            text: "HYF repositories"
-        });
+    function headerHYF() {
+        const header = document.getElementById('header');
         return header;
     }
 
@@ -39,9 +29,11 @@
             text: 'repository:  ',
             class: 'bold-title'
         });
-        createAndAppend('a', row1, {
+        const link = createAndAppend('li', row1);
+        createAndAppend('a', link, {
             text: repo.name,
             href: repo.html_url,
+            class: 'link',
             target: '_blank'
         });
         const row2 = createAndAppend('ul', createTable, {
@@ -85,19 +77,11 @@
     }
 
     function contributors(url, header) {
-        let root = document.getElementById('root');
         const select = createAndAppend('select', header, {
             class: 'repo_selector'
         });
-        const mainContainer = createAndAppend('main', root, {
-            class: "main-container"
-        });
-        const repoContainer = createAndAppend('section', mainContainer, {
-            class: "repo-container"
-        });
-        const contributorSection = createAndAppend('section', mainContainer, {
-            class: "contributors-container"
-        });
+        const repoContainer = document.getElementById('repository');
+        const contributorSection = document.getElementById('contributor');
         fetch(url)
             .then(response => response.json())
             .then(repositories => {
@@ -114,7 +98,8 @@
                     repoContainer.innerHTML = '';
                     contributorSection.innerHTML = '';
                     addInfo(repositories[select.value], repoContainer);
-                    fetch(`https://api.github.com/repos/HackYourFuture/${repositories[select.value].name}/contributors`)
+                    const contributorUrl = `https://api.github.com/repos/HackYourFuture/${repositories[select.value].name}/contributors`;
+                    fetch(contributorUrl)
                         .then(data => data.json())
                         .then(response => {
                             response.forEach(responseInfo => {
@@ -146,14 +131,7 @@
     }
 
     function main(url) {
-        const root = document.getElementById('root');
-        const header = headerHYF(root);
-        fetch(url)
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(err => {
-                handleError(err);
-            });
+        const header = headerHYF();
         contributors(url, header);
     }
 
