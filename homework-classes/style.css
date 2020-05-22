@@ -1,3 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .alert-error {
-  color: red;
+    margin: 5px;
+    padding: 15px;
+    font-size: 1.2em;
+    background-color: rgb(215, 97, 97);
+    color: rgb(75, 51, 51);
+}
+
+header {
+    display: flex;
+    font-size: 1.8rem;
+    background-color: blue;
+    color: white;
+    padding: 20px;
+}
+
+.block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    border-radius: 5px;
+    margin: 1px 0;
+    padding: 4px;
+}
+
+.bold-title {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.link {
+    margin: 0 10px;
+}
+
+.repo-select {
+    margin: 10px 30px;
+}
+
+ul {
+    display: flex;
+}
+
+ul li {
+    list-style: none;
+}
+
+.main-container {
+    width: 90%;
+    margin: 0 5%;
+    display: flex;
+}
+
+.repo-container {
+    width: 50%;
+    margin: 10px;
+}
+
+.contributors-container {
+    width: 50%;
+    margin: 10px;
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contributor {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+img {
+    /* margin-right: 15px; */
+    width: 50px;
+}
+
+.name-contributor {
+    margin: 6px 0;
+    text-align: center;
+}
+
+.contributions {
+    color: white;
+    padding: 7px;
+    margin: 5px;
+    font-size: 1rem;
+    background-color: rgb(109, 106, 106);
+}
+
+@media(max-width: 600px) {
+    .main-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .contributors-container,
+    .repo-container {
+        width: 90%;
+    }
 }
